@@ -17,13 +17,7 @@
 
 [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
 
-TBD
-
-![banner][banner]
-
-## Features
-
-- TBD
+Feedback application
 
 ## Links
 
@@ -33,12 +27,11 @@ TBD
 
 ## Screenshots
 
-TBD
+![screenshot][screenshot]
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[banner]: https://raw.githubusercontent.com/timmo001/feedback/master/docs/resources/banner.png
 [buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
 [buymeacoffee]: https://www.buymeacoffee.com/timmo
 [code_of_conduct]: https://github.com/timmo001/feedback/blob/master/.github/CODE_OF_CONDUCT.md
@@ -48,6 +41,7 @@ TBD
 [demo-app]: https://feedback-demo.timmo.xyz/
 [dockerhub]: https://hub.docker.com/r/timmo001/feedback
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
+[screenshot]: https://raw.githubusercontent.com/timmo001/feedback/master/src/resources/screenshot.png
 [license-shield]: https://img.shields.io/github/license/timmo001/feedback.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg
 [microbadger]: https://microbadger.com/images/timmo001/feedback
