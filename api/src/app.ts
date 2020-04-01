@@ -16,7 +16,6 @@ import middleware from './middleware';
 import services from './services';
 import appHooks from './app.hooks';
 import channels from './channels';
-import authentication from './authentication';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const app: Application = express(feathers());
@@ -52,7 +51,7 @@ app.configure(
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
-app.configure(authentication);
+// app.configure(authentication);
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Set up event channels (see channels.js)

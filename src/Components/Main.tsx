@@ -1,5 +1,8 @@
 import React, { Fragment, ReactElement, useEffect, useState } from 'react';
 import clsx from 'clsx';
+import io from 'socket.io-client';
+import feathers from '@feathersjs/feathers';
+import socketio from '@feathersjs/socketio-client';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -70,6 +73,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
+let socket: SocketIOClient.Socket, client: feathers.Application;
 export default function Main(): ReactElement {
   const [comment, setComment] = useState<string>();
   const [loading, setLoading] = useState<boolean>();
@@ -79,6 +83,24 @@ export default function Main(): ReactElement {
 
   useEffect(() => {
     if (window.location.search) setToken(parseToken());
+  }, []);
+
+  useEffect(() => {
+    if (!client) {
+      client = feathers();
+      const url = `${
+        process.env.REACT_APP_API_PROTOCOL || window.location.protocol
+      }//${process.env.REACT_APP_API_HOSTNAME || window.location.hostname}:${
+        process.env.REACT_APP_API_PORT || process.env.NODE_ENV === 'development'
+          ? '8654'
+          : window.location.port
+      }`;
+      socket = io(url, {
+        path: `${window.location.pathname}/socket.io`.replace('//', '/'),
+      });
+      client.configure(socketio(socket));
+      // client.configure(authentication());
+    }
   }, []);
 
   function handleStatusChange(s: Status): void {
@@ -92,7 +114,20 @@ export default function Main(): ReactElement {
   }
 
   function handleSend(): void {
-    console.log('handleSend');
+    setLoading(true);
+    socket.emit(
+      'create',
+      'feedback',
+      { comment, status: status?.id, token },
+      (error: { message: string }) => {
+        setLoading(false);
+        if (error) {
+          console.error('Error creating feedbacl:', error);
+          setSuccess(false);
+        }
+        setSuccess(true);
+      }
+    );
   }
 
   const classes = useStyles();
