@@ -230,10 +230,10 @@ export default function Main(): ReactElement {
               </div>
             ) : (
               <CardContent>
-                <Typography variant="h2" component="h2">
+                <Typography variant="h4" component="h2">
                   Thank you for your feedback!
                 </Typography>
-                <Typography variant="h4" component="h4">
+                <Typography variant="h6" component="h4">
                   You can now close this tab/window.
                 </Typography>
               </CardContent>
