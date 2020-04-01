@@ -107,7 +107,8 @@ export default function Main(): ReactElement {
               <div>
                 <CardContent>
                   <Typography variant="h4" component="h2">
-                    How satisfied are you with our service?
+                    {process.env.REACT_APP_TITLE ||
+                      'How satisfied are you with our service?'}
                   </Typography>
                   <Grid
                     className={classes.gridStatus}
