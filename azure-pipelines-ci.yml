@@ -191,7 +191,7 @@ stages:
               gitHubConnection: "timmo001"
               repositoryName: "$(Build.Repository.Name)"
               comment: |
-                ✔️ Pipeline for build [$(Build.BuildNumber)](https://dev.azure.com/timmo0001/Simple%20Dashboard/_build/results?buildId=$(Build.BuildId)&view=results) has passed.
+                ✔️ Pipeline for build [$(Build.BuildNumber)](https://dev.azure.com/timmo0001/Feedback/_build/results?buildId=$(Build.BuildId)&view=results) has passed.
   - stage: "Pipeline_Failed"
     displayName: "Pipeline Failed"
     dependsOn:
@@ -210,6 +210,6 @@ stages:
               gitHubConnection: "timmo001"
               repositoryName: "$(Build.Repository.Name)"
               comment: |
-                ❌ Pipeline for build [$(Build.BuildNumber)](https://dev.azure.com/timmo0001/Simple%20Dashboard/_build/results?buildId=$(Build.BuildId)&view=results) has failed.
+                ❌ Pipeline for build [$(Build.BuildNumber)](https://dev.azure.com/timmo0001/Feedback/_build/results?buildId=$(Build.BuildId)&view=results) has failed.
 
                 Check the logs to see what went wrong.
